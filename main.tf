@@ -14,7 +14,7 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_resource_group" "d40trainingrg" {
+resource "azurerm_resource_group" "trainingrg" {
   name     = "myTFResourceGroup"
   location = "eastus2"
 }
