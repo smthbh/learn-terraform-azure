@@ -14,7 +14,15 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_resource_group" "trainingrg" {
-  name     = "myTFResourceGroup"
+resource "azurerm_resource_group" "rg" {
+  name     = "trainingRg"
   location = "eastus2"
+}
+
+# Create a virtual network
+resource "azurerm_virtual_network" "vnet" {
+    name                = "trainingVnet"
+    address_space       = ["10.0.0.0/16"]
+    location            = "eastus2"
+    resource_group_name = azurerm_resource_group.rg.name
 }
